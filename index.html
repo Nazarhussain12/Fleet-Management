@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Management</title>
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>EMS2 Fleet Management</h2>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#" class="dropdown-btn">Dashboard</a>
+                        <div class="dropdown-container">
+                            <a href="#">Vehicles Overview</a>
+                            <a href="#">Real Time Data</a>
+
+                        </div>
+                    </li>
+                    <li><a href="#">Vehicles</a></li>
+                    <li><a href="#">Trips</a></li>
+                    <li><a href="#">Maintenance</a></li>
+                    <li><a href="#">Analytics</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <div class="filters">
+               
+                
+            
+                </div>
+                
+                <div class="user-info">
+                    <img src="./assets/user-icon.png" alt="User Icon" class="user-icon">
+                    <span id="user-profile">Jane Citizen</span>
+                </div>
+            </header>
+            <div class="content">
+                <section class="vehicle-list">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Enter Value">
+                    </div>
+                    <div class="tabs">
+                        <button id="all" class="tab active">All</button>
+                        <button id="driving" class="tab">Driving</button>
+                        <button id="parked" class="tab">Parked</button>
+                    </div>
+                    <ul class="vehicles">
+                        <!-- Sample vehicle item -->
+                        <li class="vehicle-item">
+                            <div class="vehicle-details">
+                                <div class="icon-container">
+                                    <img src="./assets/truck-icon-31.png" alt="Truck Icon" class="truck-icon">
+                                </div>
+                                <div class="text-container">
+                                    <h4>CRS 2567</h4>
+                                    <p>16 June, 2024 - 10h 30min</p>
+                                </div>
+                            </div>
+                            <div class="vehicle-status">
+                                <img src="./assets/warning-icon.png" alt="Warning Icon" class="warning-icon">
+                                <button class="trip-button">Trip ></button>
+                            </div>
+                        </li>
+                                            
+                        <!-- Repeat similar structure for other vehicle items -->
+                    </ul>
+                </section>
+                <section class="map-section">
+                    <div id="map" class="map"></div>
+                    <div class="status-container">
+                        <div class="status-item" id="status-moving">
+                            <span class="status-title">Moving Vehicles</span>
+                            <img src="./assets/truck-icon-31.png" alt="Moving Vehicles Icon" class="status-icon">
+                            <span class="status-count" id="moving-vehicles">6</span>
+                        </div>
+                        <div class="status-item" id="status-idle">
+                            <span class="status-title">Idle Vehicles</span>
+                            <img src="./assets/truck-icon-31.png" alt="Idle Vehicles Icon" class="status-icon">
+                            <span class="status-count" id="idle-vehicles">5</span>
+                        </div>
+                        <div class="status-item" id="status-ignition-off">
+                            <span class="status-title">Ignition Off</span>
+                            <img src="./assets/truck-icon-31.png" alt="Ignition Off Icon" class="status-icon">
+                            <span class="status-count" id="ignition-off">4</span>
+                        </div>
+                        <div class="status-item" id="status-ignition-on">
+                            <span class="status-title">Ignition On</span>
+                            <img src="./assets/truck-icon-31.png" alt="Ignition On Icon" class="status-icon">
+                            <span class="status-count" id="ignition-on">9</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="./src/js/script.js"></script>
+</body>
+</html>

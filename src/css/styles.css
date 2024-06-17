@@ -1,0 +1,427 @@
+/* Resetting box-sizing and font size */
+* {
+    box-sizing: border-box;
+    font-size: 14px; /* Adjust base font size as needed */
+}
+
+/* Body and HTML */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background-color: #f7f7f7;
+    padding: 10px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Increase margin bottom for spacing */
+    font-size: 20px; /* Increase font size */
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    padding: 8px;
+    text-align: left;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #ddd;
+}
+.sidebar nav ul li a.active-link, .dropdown-container a.active-link {
+    color: #FF7518; /* Sets the text color orange when active */
+    background-color: #f1f1f1; /* Optional: changes background if needed */
+}
+
+/* Ensures dropdown buttons don't stay highlighted unless their submenu item is active */
+.dropdown-btn:not(.active-link) {
+    color: #333; /* Default color */
+    background-color: transparent; /* Default background */
+}
+
+.dropdown-container {
+    background-color: #f9f9f9; /* Lighter shade for dropdown background */
+}
+
+.dropdown-container {
+    display: none;
+    background-color: #f9f9f9;
+    padding-left: 15px;
+}
+
+.dropdown-container a {
+    padding: 6px 8px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+
+.dropdown-container a:hover {
+    background-color: #ddd;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color:#FF7518;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    margin-left: 25%;
+}
+
+.filters input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.filters label {
+    margin-right: 10px;
+}
+
+/* Checkboxes */
+
+
+.custom-checkbox {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 15px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+    background-color:  #FF7518;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: #ffcc00;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+    left: 5px;
+    top: 3px;
+    width: 3px;
+    height: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+.submit-button{
+    background-color: #FF7518;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color:white;
+}
+.submit-button:hover{
+    cursor: pointer;
+}
+/* Content */
+.content {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+}
+.vehicles {
+    list-style-type: none;
+    padding: 0;
+}
+
+.vehicle-item {
+    padding: 8px; /* Decrease padding */
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.vehicle-item h4 {
+    margin: 0;
+    font-size: 14px; /* Decrease font size */
+}
+
+.vehicle-item p {
+    margin: 5px 0;
+    font-size: 12px; /* Decrease font size */
+    color: #666;
+}
+
+.vehicle-status span {
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: #eee;
+    font-size: 12px; /* Small increase in font size */
+    margin-right: 4px;
+}
+
+/* Map Section */
+.map-section {
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.status-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.status-item {
+    background-color: #f9f9f9;
+    padding: 12px; /* Increase padding slightly */
+    margin-bottom: 6px; /* Adjust margin */
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(193, 163, 163, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 144px; /* Increase width slightly */
+}
+
+.status-item:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+.status-title {
+    font-size: 12px; /* Keep font size unchanged */
+    font-weight: bold;
+}
+
+.status-icon {
+    width: 32px; /* Increase icon width slightly */
+    height: 20px; /* Increase icon height slightly */
+    margin-right: 6px; /* Adjust margin */
+}
+
+.status-count {
+    font-size: 18px; /* Keep font size unchanged */
+    font-weight: bold;
+}
+
+/* Vehicle List */
+.vehicle-list {
+    width: 300px;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 5px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.tab {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #ffffff;
+    color: #FF7518;
+}
+
+.tab::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #FF7518;
+    transition: width 0.3s ease;
+}
+
+.tab.active::after {
+    width: 100%;
+}
+
+.vehicles {
+    list-style-type: none;
+}
+
+.vehicle-item {
+    position: relative;
+    padding: 8px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.vehicle-details {
+    display: flex;
+    align-items: center;
+}
+
+.icon-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e3e2e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-right: 10px;
+}
+
+.truck-icon {
+    width: 25px;
+    height: 15px;
+}
+
+.text-container h4, .text-container p {
+    margin: 0;
+}
+
+.text-container p {
+    font-size: 12px;
+    color: #666;
+}
+
+.vehicle-status {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.warning-icon, .trip-button {
+    width: 20px; /* Same size for button width */
+    height: 20px; /* Height to align with icon size */
+    margin-bottom: 4px;
+}
+
+.trip-button {
+    background-color: #ffcc00;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* Ensures the button aligns correctly with the icon */
+    text-align: center; /* Center text inside the button */
+    min-width: 50px; /* Ensures consistent button width */
+}
+
+/* Map Section */
+.map-section {
+    flex-grow: 1;
+    position: relative;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.status-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-item {
+    background-color: #f9f9f9;
+    padding: 12px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(193, 163, 163, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 144px;
+}
+
+.status-item:hover {
+    background-color: #ddd;
+}
