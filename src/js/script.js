@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: 'KRX 1002', lat: 35.1796, lng: 129.0756, status: 'parked', dateTime: '2024-06-17T16:00:00', events: [{ type: 'error', label: 'Maintenance' }] },
         { name: 'KRX 1003', lat: 37.4563, lng: 126.7052, status: 'driving', dateTime: '2024-06-17T18:45:00', events: [{ type: 'warning', label: 'Low Fuel' }] },
         { name: 'KRX 1004', lat: 35.8714, lng: 128.6014, status: 'parked', dateTime: '2024-06-17T20:00:00', events: [{ type: 'error', label: 'Error' }] },
+        { name: 'KRX 1005', lat: 33.4996, lng: 126.5312, status: 'driving', dateTime: '2024-06-17T13:30:00', events: [{ type: 'info', label: 'All Clear' }] },
+         { name: 'KRX 1003', lat: 37.4563, lng: 126.7052, status: 'driving', dateTime: '2024-06-17T18:45:00', events: [{ type: 'warning', label: 'Low Fuel' }] },
+        { name: 'KRX 1004', lat: 35.8714, lng: 128.6014, status: 'parked', dateTime: '2024-06-17T20:00:00', events: [{ type: 'error', label: 'Error' }] },
         { name: 'KRX 1005', lat: 33.4996, lng: 126.5312, status: 'driving', dateTime: '2024-06-17T13:30:00', events: [{ type: 'info', label: 'All Clear' }] }
     ];
     
@@ -188,4 +191,31 @@ function renderVehicleList(vehicles) {
         });
     });
 
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("vehicleListModal"); // Ensure you have this ID in your modal
+    var btn = document.querySelector('.vehicle-overview-link'); // This selects the link
+    var span = document.getElementsByClassName("close-button")[0]; // This selects the close button of the modal
+
+    // Open the modal when the Vehicle Overview link is clicked
+    btn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevents the default link behavior
+        modal.style.display = "block"; // Displays the modal
+    });
+
+    // Close the modal when the 'x' is clicked
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close the modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 });

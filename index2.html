@@ -180,14 +180,16 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu" >
            
-            <li class="treeview  active">
+            <li class="treeview">
               <a href="#">
                 <i class="fa fa-dashboard" style="color: black;"></i> <span style="color: rgb(155, 155, 155);">Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu" >
-                <li><a href="./index.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Vehicle OverView</a></li>
-                <li><a href="./index2.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Real-Time Data</a></li>
-              </ul>
+                <li><a href="#" class="vehicle-overview-link"><i class="fa fa-circle-o" ></i> Vehicle Overview</a></li>
+
+                <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Real-Time Data</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Events</a></li>
+                </ul>
             </li>
             <li class="treeview">
               <a href="#">
@@ -197,8 +199,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu" style="color: black; background-color:rgb(255, 255, 255);">
-                <li><a href="top-nav.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);">Fleet</a></li>
-                <li><a href="boxed.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> vehicle Details</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);">Fleet</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> vehicle Details</a></li>
                 
               </ul>
             </li>
@@ -210,8 +212,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu" style="color: black; background-color:rgb(255, 255, 255);">
-                <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> OverView</a></li>
-                <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Details</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> OverView</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Details</a></li>
               
               </ul>
             </li>
@@ -222,9 +224,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Heat Maps</a></li>
-                <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Trips</a></li>
-                <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);">Events</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Heat Maps</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Trips</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);">Events</a></li>
                
               </ul>
             </li>
@@ -241,6 +243,10 @@
       <!-- Right side column. Contains the navbar and content of the page -->
       <div class="content-wrapper">
         <div class="content">
+            <div id="vehicleListModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3 class="title-modal">Active Vehicles</h3>
             <section class="vehicle-list">
                 <div class="search-bar">
                     <input type="text" placeholder="Enter Value">
@@ -271,6 +277,8 @@
                     <!-- Repeat similar structure for other vehicle items -->
                 </ul>
             </section>
+        </div>
+    </div>
             <section class="map-section">
                 <div id="map" class="map"></div>
                 <div class="status-container">
