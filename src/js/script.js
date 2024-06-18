@@ -1,15 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Leaflet map initialization
-    const map = L.map('map').setView([39.8283, -98.5795], 4); // Centered at United States
+    const map = L.map('map').setView([37.5665, 126.9780], 6); // Centered at Seoul,
+    // Centered at the United States
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19
     }).addTo(map);
 
-    const vehicleIcon = L.icon({
-        iconUrl: "../../assets/truck-icon-31.png", // Replace with the path to your vehicle icon
-        iconSize: [32, 20], // Size of the icon
-        iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
+    // Define icons for different vehicle statuses
+    const drivingIcon = L.icon({
+        iconUrl: "../../assets/car.png", // Path to the driving vehicle icon
+        iconSize: [42, 40],
+        iconAnchor: [21, 20] // Center the icon
+    });
+
+    const parkedIcon = L.icon({
+        iconUrl: "../../assets/parked.png", // Path to the parked vehicle icon
+        iconSize: [42, 40],
+        iconAnchor: [21, 20] // Center the icon
     });
 
     let allMarkers = [];
@@ -17,12 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Dummy data sets for vehicles within the United States
     const dummyDataAll = [
-        { name: 'CRS 2567', lat: 38.9072, lng: -77.0369, status: 'driving', dateTime: '2024-06-16T10:30:00', events: [{ type: 'error', label: 'Error' }] },
-        { name: 'CRS 2567', lat: 34.0522, lng: -118.2437, status: 'parked', dateTime: '2024-06-16T11:45:00', events: [{ type: 'warning', label: 'Warning' }] },
-        { name: 'CRS 2567', lat: 40.7128, lng: -74.006, status: 'driving', dateTime: '2024-06-16T09:15:00', events: [{ type: 'info', label: 'Info' }] },
-        { name: 'CRS 2567', lat: 29.7604, lng: -95.3698, status: 'parked', dateTime: '2024-06-16T12:00:00', events: [{ type: 'error', label: 'Error' }, { type: 'warning', label: 'Warning' }] }
+       
+        { name: 'CRS 2567', lat: 29.7604, lng: -95.3698, status: 'parked', dateTime: '2024-06-16T12:00:00', events: [{ type: 'error', label: 'Error' }, { type: 'warning', label: 'Warning' }] },
+        { name: 'KRX 1001', lat: 37.5665, lng: 126.9780, status: 'driving', dateTime: '2024-06-17T14:30:00', events: [{ type: 'info', label: 'Info' }] },
+        { name: 'KRX 1002', lat: 35.1796, lng: 129.0756, status: 'parked', dateTime: '2024-06-17T16:00:00', events: [{ type: 'error', label: 'Maintenance' }] },
+        { name: 'KRX 1003', lat: 37.4563, lng: 126.7052, status: 'driving', dateTime: '2024-06-17T18:45:00', events: [{ type: 'warning', label: 'Low Fuel' }] },
+        { name: 'KRX 1004', lat: 35.8714, lng: 128.6014, status: 'parked', dateTime: '2024-06-17T20:00:00', events: [{ type: 'error', label: 'Error' }] },
+        { name: 'KRX 1005', lat: 33.4996, lng: 126.5312, status: 'driving', dateTime: '2024-06-17T13:30:00', events: [{ type: 'info', label: 'All Clear' }] }
     ];
+    
 
+    // Filter data based on status
     const dummyDataDriving = dummyDataAll.filter(vehicle => vehicle.status === 'driving');
     const dummyDataParked = dummyDataAll.filter(vehicle => vehicle.status === 'parked');
 
@@ -34,10 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add new markers
         vehicles.forEach(vehicle => {
-            const marker = L.marker([vehicle.lat, vehicle.lng], { icon: vehicleIcon }).addTo(map).bindPopup(vehicle.name);
+            const icon = vehicle.status === 'driving' ? drivingIcon : parkedIcon;
+            const marker = L.marker([vehicle.lat, vehicle.lng], { icon: icon })
+                .addTo(map)
+                .bindPopup(`${vehicle.name} - ${vehicle.status}`);
             allMarkers.push(marker);
         });
     }
+
 
     // Function to format date and time
     function formatDateTime(dateTime) {
