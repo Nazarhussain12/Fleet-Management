@@ -28,6 +28,9 @@
         .sidebar-menu{
             color: black;
         }
+        .treeview{
+            color: rgb(255, 0, 0);
+        }
     </style>
   </head>
   <!-- ADD THE CLASS sidedar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
@@ -139,21 +142,13 @@
                   <li class="user-header">
                     <img src="./dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      Alexander Pierce
+                      <small>AlexanderPierce@567gmail.com</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
                   <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
+                   
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
@@ -178,34 +173,32 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar" >
           <!-- Sidebar user panel -->
-          <div class="user-panel">
-         
-          </div>
+          
           <!-- search form -->
          
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu" >
            
-            <li class="treeview">
+            <li class="treeview  active">
               <a href="#">
-                <i class="fa fa-dashboard" style="color: black;"></i> <span style="color: black;">Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard" style="color: black;"></i> <span style="color: rgb(155, 155, 155);">Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu" style="color: black; background-color:rgb(255, 255, 255);">
-                <li><a href="./index.html"><i class="fa fa-circle-o"></i> Vehicle OverView</a></li>
-                <li><a href="./index2.html"><i class="fa fa-circle-o"></i> Real-Time Data</a></li>
+              <ul class="treeview-menu" >
+                <li><a href="./index.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Vehicle OverView</a></li>
+                <li><a href="./index2.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Real-Time Data</a></li>
               </ul>
             </li>
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#">
                 <i class="fa fa-car" style="color: black;"></i>
 
-                <span style="color: black; background-color:rgb(255, 255, 255);">Vehicle</span>
+                <span style="color: black; ">Vehicle</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu" style="color: black; background-color:rgb(255, 255, 255);">
-                <li><a href="top-nav.html"><i class="fa fa-circle-o"></i>Fleet</a></li>
-                <li><a href="boxed.html"><i class="fa fa-circle-o"></i> vehicle Details</a></li>
+                <li><a href="top-nav.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);">Fleet</a></li>
+                <li><a href="boxed.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> vehicle Details</a></li>
                 
               </ul>
             </li>
@@ -213,25 +206,25 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-pie-chart" style="color: black;"></i>
-                <span style="color: black; background-color:rgb(255, 255, 255);">Tips</span>
+                <span style="color: black;">Trips</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu" style="color: black; background-color:rgb(255, 255, 255);">
-                <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> OverView</a></li>
-                <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Details</a></li>
+                <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> OverView</a></li>
+                <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Details</a></li>
               
               </ul>
             </li>
-            <li class="treeview" style="color: black; background-color:rgb(255, 255, 255);">
+            <li class="treeview" style="color: black;">
               <a href="#">
                 <i class="fa fa-laptop" style="color: black;"></i>
-                <span style="color: black; background-color:rgb(255, 255, 255);">Analytics</span>
+                <span style="color: black;">Analytics</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> Heat Maps</a></li>
-                <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Trips</a></li>
-                <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i>Events</a></li>
+                <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Heat Maps</a></li>
+                <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);"> Trips</a></li>
+                <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i  style="color: rgb(255, 0, 0);">Events</a></li>
                
               </ul>
             </li>
@@ -262,7 +255,7 @@
                     <li class="vehicle-item">
                         <div class="vehicle-details">
                             <div class="icon-container">
-                                <img src="./assets/truck-icon-31.png" alt="Truck Icon" class="truck-icon">
+                                <img src="./assets/car.png" alt="Truck Icon" class="truck-icon">
                             </div>
                             <div class="text-container">
                                 <h4>CRS 2567</h4>
@@ -283,22 +276,22 @@
                 <div class="status-container">
                     <div class="status-item" id="status-moving">
                         <span class="status-title">Moving Vehicles</span>
-                        <img src="./assets/truck-icon-31.png" alt="Moving Vehicles Icon" class="status-icon">
+                        <img src="./assets/car1.png" alt="Moving Vehicles Icon" class="status-icon">
                         <span class="status-count" id="moving-vehicles">6</span>
                     </div>
                     <div class="status-item" id="status-idle">
                         <span class="status-title">Idle Vehicles</span>
-                        <img src="./assets/truck-icon-31.png" alt="Idle Vehicles Icon" class="status-icon">
+                        <img src="./assets/ignitionp.png" alt="Idle Vehicles Icon" class="status-icon">
                         <span class="status-count" id="idle-vehicles">5</span>
                     </div>
                     <div class="status-item" id="status-ignition-off">
                         <span class="status-title">Ignition Off</span>
-                        <img src="./assets/truck-icon-31.png" alt="Ignition Off Icon" class="status-icon">
+                        <img src="./assets/ignition1.png" alt="Ignition Off Icon" class="status-icon">
                         <span class="status-count" id="ignition-off">4</span>
                     </div>
                     <div class="status-item" id="status-ignition-on">
                         <span class="status-title">Ignition On</span>
-                        <img src="./assets/truck-icon-31.png" alt="Ignition On Icon" class="status-icon">
+                        <img src="./assets/ignition.png" alt="Ignition On Icon" class="status-icon">
                         <span class="status-count" id="ignition-on">9</span>
                     </div>
                 </div>

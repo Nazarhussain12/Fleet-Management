@@ -263,12 +263,14 @@ body, html {
     font-size: 12px; /* Keep font size unchanged */
     font-weight: bold;
 }
-
 .status-icon {
-    width: 32px; /* Increase icon width slightly */
-    height: 20px; /* Increase icon height slightly */
-    margin-right: 6px; /* Adjust margin */
+    width: 42px; /* Set fixed width */
+    height: 40px; /* Set fixed height */
+    margin-right: 6px; /* Adjust right margin */
+    object-fit: cover; /* Ensures the image covers the space without distorting the aspect ratio */
+    display: block; /* Removes bottom space/margin often seen with inline-block elements */
 }
+
 
 .status-count {
     font-size: 18px; /* Keep font size unchanged */
@@ -349,8 +351,8 @@ body, html {
 }
 
 .truck-icon {
-    width: 25px;
-    height: 15px;
+    width: 45px;
+    height: 45px;
 }
 
 .text-container h4, .text-container p {

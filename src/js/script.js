@@ -70,32 +70,36 @@ document.addEventListener("DOMContentLoaded", () => {
         return months[monthIndex];
     }
 
-    // Function to render vehicle list
-    function renderVehicleList(vehicles) {
-        const vehicleList = document.querySelector('.vehicles');
-        vehicleList.innerHTML = '';
-        vehicles.forEach(vehicle => {
-            const vehicleItem = document.createElement('li');
-            vehicleItem.className = 'vehicle-item';
-            vehicleItem.innerHTML = `
-                <div class="vehicle-details">
-                    <div class="icon-container">
-                        <img src="../../assets/truck-icon-31.png" alt="Truck Icon" class="truck-icon">
-                    </div>
-                    <div class="text-container">
-                        <h4>${vehicle.name}</h4>
-                        <p>${formatDateTime(vehicle.dateTime)}</p>
-                    </div>
+  // Function to render vehicle list
+function renderVehicleList(vehicles) {
+    const vehicleList = document.querySelector('.vehicles');
+    vehicleList.innerHTML = '';  // Clears existing list content
+
+    vehicles.forEach(vehicle => {
+        // Determine the appropriate icon based on vehicle status
+        const iconPath = vehicle.status === 'driving' ? '../../assets/car1.png' : '../../assets/parked1.png';
+        const altText = vehicle.status === 'driving' ? 'Driving Icon' : 'Parked Icon';
+
+        const vehicleItem = document.createElement('li');
+        vehicleItem.className = 'vehicle-item';
+        vehicleItem.innerHTML = `
+            <div class="vehicle-details">
+                <div class="icon-container">
+                    <img src="${iconPath}" alt="${altText}" class="truck-icon">
                 </div>
-                <div class="vehicle-status">
-                    <img src="../../assets/warning-icon.png" alt="Warning Icon" class="warning-icon">
-                    <button class="trip-button">Trip ></button>
+                <div class="text-container">
+                    <h4>${vehicle.name}</h4>
+                    <p>${formatDateTime(vehicle.dateTime)}</p>
                 </div>
-            `;
-            vehicleList.appendChild(vehicleItem);
-        });
-    }
-    
+            </div>
+            <div class="vehicle-status">
+                <img src="../../assets/warning-icon.png" alt="Warning Icon" class="warning-icon">
+                <button class="trip-button">Trip ></button>
+            </div>
+        `;
+        vehicleList.appendChild(vehicleItem);
+    });
+}
     
 
     // Initial data load - showing all vehicles
