@@ -234,24 +234,21 @@ body, html {
 }
 
 .status-container {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
+   
+    
     z-index: 1000;
 }
 
 .status-item {
     background-color: #f9f9f9;
-    padding: 12px; /* Increase padding slightly */
+    padding: 20px; /* Increase padding slightly */
     margin-bottom: 6px; /* Adjust margin */
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(193, 163, 163, 0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 144px; /* Increase width slightly */
+    width: 174px; /* Increase width slightly */
 }
 
 .status-item:hover {
@@ -406,27 +403,22 @@ body, html {
 
 .status-container {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    top: 10px;
+    margin-left: 15px; /* Positioned at the top inside the map */
+    left: 50%; /* Centering the container */
+    transform: translateX(-50%); /* Align center of the container with the center of the map */
     display: flex;
-    flex-direction: column;
-}
-
-.status-item {
-    background-color: #f9f9f9;
-    padding: 12px;
-    margin-bottom: 6px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(193, 163, 163, 0.3);
-    display: flex;
-    justify-content: space-between;
+    justify-content: space-around; /* Distributes the space evenly around the items */
     align-items: center;
-    width: 144px;
+    padding: 10px 20px; /* Padding around the items */
+   
+    border-radius: 8px; /* Rounded corners */
+   
+    width: 100%; /* Auto width based on content */
+    max-width: 100%; 
 }
 
-.status-item:hover {
-    background-color: #ddd;
-}
+
 
 .modal {
     width: 350px;
@@ -440,6 +432,7 @@ body, html {
     max-height: 100%; /* Maximum height before scrolling */
     border-radius: 8px; /* Optional: Rounds the corners */
 }
+
 
 .modal-content {
     width: 300px; /* Width of the content inside the modal */
@@ -455,7 +448,6 @@ body, html {
     font-size: 28px;
     font-weight: bold;
 }
-
 .close-button:hover,
 .close-button:focus {
     color: black;

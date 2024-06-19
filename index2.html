@@ -242,7 +242,18 @@
 
       <!-- Right side column. Contains the navbar and content of the page -->
       <div class="content-wrapper">
+         <section class="content-header">
+            <h1>
+              Dashboard
+              <small>/ Real-Time Data</small>
+            </h1>
+            <ol class="breadcrumb">
+              <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+              <li class="active">Real-Time Data</li>
+            </ol>
+          </section>
         <div class="content">
+
             <div id="vehicleListModal" class="modal">
                 <div class="modal-content">
                     <span class="close-button">&times;</span>
@@ -280,41 +291,46 @@
         </div>
     </div>
             <section class="map-section">
-                <div id="map" class="map"></div>
-                <div class="status-container">
-                    <div class="status-item" id="status-moving">
-                        <span class="status-title">Moving Vehicles</span>
-                        <img src="./assets/car1.png" alt="Moving Vehicles Icon" class="status-icon">
-                        <span class="status-count" id="moving-vehicles">6</span>
+                <div class="row">
+                    <div class="status-container">
+                    <div class="col-lg-3 col-xs-6">
+                        <div class="status-item" id="status-moving">
+                            <span class="status-title">Moving Vehicles</span>
+                            <img src="../assets/car1.png" alt="Moving Vehicles Icon" class="status-icon">
+                            <span class="status-count" id="moving-vehicles">6</span>
+                        </div>
                     </div>
-                    <div class="status-item" id="status-idle">
-                        <span class="status-title">Idle Vehicles</span>
-                        <img src="./assets/ignitionp.png" alt="Idle Vehicles Icon" class="status-icon">
-                        <span class="status-count" id="idle-vehicles">5</span>
+                    <div class="col-lg-3 col-xs-6">
+                        <div class="status-item" id="status-idle">
+                            <span class="status-title">Idle Vehicles</span>
+                            <img src="../assets/ignitionp.png" alt="Idle Vehicles Icon" class="status-icon">
+                            <span class="status-count" id="idle-vehicles">5</span>
+                        </div>
                     </div>
-                    <div class="status-item" id="status-ignition-off">
-                        <span class="status-title">Ignition Off</span>
-                        <img src="./assets/ignition1.png" alt="Ignition Off Icon" class="status-icon">
-                        <span class="status-count" id="ignition-off">4</span>
+                    <div class="col-lg-3 col-xs-6">
+                        <div class="status-item" id="status-ignition-off">
+                            <span class="status-title">Ignition Off</span>
+                            <img src="../assets/ignition1.png" alt="Ignition Off Icon" class="status-icon">
+                            <span class="status-count" id="ignition-off">4</span>
+                        </div>
                     </div>
-                    <div class="status-item" id="status-ignition-on">
-                        <span class="status-title">Ignition On</span>
-                        <img src="./assets/ignition.png" alt="Ignition On Icon" class="status-icon">
-                        <span class="status-count" id="ignition-on">9</span>
+                    <div class="col-lg-3 col-xs-6">
+                        <div class="status-item" id="status-ignition-on">
+                            <span class="status-title">Ignition On</span>
+                            <img src="../assets/ignition.png" alt="Ignition On Icon" class="status-icon">
+                            <span class="status-count" id="ignition-on">9</span>
+                        </div>
                     </div>
                 </div>
+                </div>
+                
+                <div id="map" class="map"></div>
+               
             </section>
+            
         </div>
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-       
-
-        </section><!-- /.content -->
+      
+        </div><!-- /.content -->
       </div><!-- /.content-wrapper -->
 
       <footer class="main-footer">

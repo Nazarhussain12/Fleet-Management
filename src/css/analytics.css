@@ -1,0 +1,118 @@
+/* General container adjustments for the row */
+.row {
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding around the items for better spacing */
+}
+
+/* Styling adjustments for the status-item */
+.status-item {
+    background-color: #fff; /* Light background for better contrast */
+    border: 1px solid #ddd; /* Subtle border for definition */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for 3D effect */
+    padding: 15px; /* Adequate padding around content */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: space-around; /* Space out content */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.status-item:hover {
+    background-color: #f8f8f8; /* Slightly darker on hover for interactive feedback */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+/* Title styling */
+.status-title {
+    font-size: 16px; /* Larger font size for readability */
+    color: #333; /* Dark grey for better visibility */
+    font-weight: bold; /* Bold font for emphasis */
+    margin-bottom: 5px; /* Space between title and icon */
+}
+
+/* Icon adjustments */
+.status-icon {
+    width: 50px; /* Larger icon for visibility */
+    height: 50px; /* Keep aspect ratio */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Count style */
+.status-count {
+    font-size: 20px; /* Larger font size for impact */
+    color: #555; /* Darker text for the count */
+    font-weight: bold; /* Bold for emphasis */
+}
+
+/* Ensuring the layout works responsively */
+@media (max-width: 768px) {
+    .status-item {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        text-align: center; /* Center text for aesthetics */
+    }
+
+    .status-icon {
+        margin: 0 0 10px; /* Adjust margin for vertical stacking */
+    }
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: linear-gradient(to right, #ffffff, #f1f1f1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.content-header h1 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+    font-weight: normal;
+}
+
+.date-time-selectors {
+    display: flex;
+    align-items: center;
+}
+
+.date-time-selectors input[type="date"],
+.date-time-selectors input[type="time"] {
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;
+    font-size: 14px;
+}
+
+#widget-button {
+    background-color: #ff7f50;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#widget-button i {
+    margin-left: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content-header {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .date-time-selectors {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
