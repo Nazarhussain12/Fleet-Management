@@ -136,8 +136,21 @@ legend.addTo(map);
         }
     });
    
+    document.querySelectorAll('.toggle-event').forEach(item => {
+        item.addEventListener('change', function() {
+            if (this.checked) {
+                // Add more specific handling or data filtering based on checked items
+                console.log(this.id + ' is checked');
+            } else {
+                console.log(this.id + ' is unchecked');
+            }
+        });
+    });
 
-
+    document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+        document.querySelector('.content-wrapper').classList.toggle('collapsed');
+    });
+    
     // Fetch data and update the heatmap and chart
     fetch('../../Pages/data.json')
     .then(response => response.json())

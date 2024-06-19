@@ -26,59 +26,181 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <style>
-        .sidebar-menu{
-            color: black;
-        }
-        .treeview{
-            color: rgb(255, 0, 0);
-        }
-        .legend {
-            padding: 10px 12px;
-            font: 16px 'Roboto', sans-serif; /* Modern, clean font */
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-            border-radius: 8px;
-            line-height: 24px;
-            border: 1px solid rgba(0,0,0,0.1); /* Slight border for depth */
-            color: #333;
-        }
-        
-        .legend i {
-            width: 18px;
-            height: 18px;
-            float: left;
-            margin-right: 8px;
-            opacity: 0.85;
-        }
-        
-        .legend strong {
-            text-align: center;
-            display: block;
-            margin-bottom: 10px;
-            color: #2c3e50; /* Dark blue-grey for better visibility */
-            font-weight: bold;
-        }
-        
-        .legend i {
-            background-size: cover; /* Ensure the gradient or color fills the box */
-            border-radius: 3px; /* Slightly rounded corners for the color squares */
-        }
-        
-        /* Additional modern styling for the legend entries */
-        .legend div {
-            clear: both;
-            display: flex;
-            align-items: center; /* Vertically aligns text with the color boxes */
-        }
-        
-        .legend span {
-            flex-grow: 1;
-            padding-left: 10px;
-            font-size: 14px;
-        }
-        
-        
-        
+      .sidebar-menu {
+        color: black;
+    }
+    
+    .treeview {
+        color: rgb(255, 0, 0);
+    }
+    .map{
+     
+      width: 200px;
+    }
+    /* Legend Styling */
+    .legend {
+        padding: 10px 12px;
+        font: 16px 'Roboto', sans-serif;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        line-height: 24px;
+        border: 1px solid rgba(0,0,0,0.1);
+        color: #333;
+        position: absolute; /* Adjust position relative to the map */
+        bottom: 20px; /* Position at the bottom-right of the map */
+        right: 80px;
+    }
+    
+    .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.85;
+    }
+    
+    .legend strong {
+        text-align: center;
+        display: block;
+        margin-bottom: 10px;
+        color: #2c3e50;
+        font-weight: bold;
+    }
+    
+    .legend div {
+        clear: both;
+        display: flex;
+        align-items: center;
+    }
+    
+    .legend span {
+        flex-grow: 1;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+    .eventChart{
+margin-left: 200px;
+
+    }
+/* Event List Styling */
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 360px;
+  margin-left: -20px;
+}
+
+.event-list ul {
+  list-style: none;
+  padding: 3px;
+  margin-left: 2px;
+ 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 360px;
+}
+
+.event-list li {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.event-list img {
+  width: 45px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.event-count {
+  margin-left: auto;
+  background: #e02323;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+    
+   
+    .event-checkbox {
+      display: none; 
+      background-color: #4CAF50;/* Hide the default checkbox */
+  }
+  .toggle-label {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically */
+    position: relative;
+    padding: 20px 5px; /* Keep the padding as originally stated */
+    cursor: pointer;
+    transition: color 0.3s;
+    background: #ffffff; /* Background color */
+    border-radius: 20px;
+    user-select: none;
+    width: 70%; /* Ensure label uses the full width */
+}
+
+.toggle-label::before, .toggle-label::after {
+    position: absolute;
+}
+
+.toggle-label::before {
+    content: '';
+    top: 90%;
+    left: 10px; /* Positioned on the left within the padding */
+    transform: translateY(-50%);
+    width: 30px;
+    height: 16px;
+    background-color: #ccc;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.toggle-label::after {
+    content: '';
+    top: 90%;
+    left: 20px; /* Slightly right from the left edge of the toggle background */
+    transform: translateY(-50%) translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-label img {
+    margin-right: 20px; /* Space between the icon and text */
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.event-checkbox:checked + .toggle-label::before {
+    background-color: #4CAF50; /* Green when checked */
+}
+
+.event-checkbox:checked + .toggle-label::after {
+    transform: translateY(-50%) translateX(1px); /* Adjust movement to fit within padding */
+}
+
+.event-count {
+    /* Push to the right */
+    background: #ddd;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+
+
     </style>
   </head>
   <!-- ADD THE CLASS sidedar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
@@ -302,10 +424,162 @@
             </ol>
           </section>
  <!-- Heatmap Container -->
- <div id="map" style="width: 100%; height: 400px;"></div>
+ <div class="row">
+ 
+  <div class="col-md-3">
+      <div class="event-list">
+          <ul>
+            <li>
+              <input type="checkbox" id="event1" class="event-checkbox" />
+              <label for="event1" class="toggle-label">
+                  <img src="../assets/speeding.jpg" alt="Event 1">
+                  Speeding <span class="event-count">23</span>
+              </label>
+          </li>
 
- <!-- Bar Graph Container -->
- <canvas id="eventChart" width="400" height="100"></canvas>
+
+          <li>
+            <input type="checkbox" id="event2" class="event-checkbox" />
+            <label for="event2" class="toggle-label">
+                <img src="../assets/longtermspeeding.jpg" alt="Event 2">
+                Long Term Speeding <span class="event-count">23</span>
+            </label>
+        </li>
+
+
+        <li>
+          <input type="checkbox" id="event3" class="event-checkbox" />
+          <label for="event3" class="toggle-label">
+              <img src="../assets/suddenacceleration.jpg" alt="Event 1">
+              Sudden Acceleration <span class="event-count">23</span>
+          </label>
+      </li>
+
+
+
+      <li>
+        <input type="checkbox" id="event4" class="event-checkbox" />
+        <label for="event4" class="toggle-label">
+            <img src="../assets/suddenstart.jpg" alt="Event 1">
+            Sudden Start <span class="event-count">23</span>
+        </label>
+    </li>
+
+
+
+
+    <li>
+      <input type="checkbox" id="event5" class="event-checkbox" />
+      <label for="event5" class="toggle-label">
+          <img src="../assets/rapiddeclearation.jpg" alt="Event 1">
+          Rapid Decleartion<span class="event-count">23</span>
+      </label>
+  </li>
+
+
+
+
+  <li>
+    <input type="checkbox" id="event6" class="event-checkbox" />
+    <label for="event6" class="toggle-label">
+        <img src="../assets/rapidpathchange.jpg" alt="Event 1">
+        Rapid Path Change <span class="event-count">23</span>
+    </label>
+</li>
+
+
+<li>
+  <input type="checkbox" id="event7" class="event-checkbox" />
+  <label for="event7" class="toggle-label">
+      <img src="../assets/suddentstop.jpg" alt="Event 1">
+      Sudden Stop <span class="event-count">23</span>
+  </label>
+</li>
+
+
+
+
+<li>
+  <input type="checkbox" id="event8" class="event-checkbox" />
+  <label for="event8" class="toggle-label">
+      <img src="../assets/overtracking.jpg" alt="Event 1">
+     Over Taking <span class="event-count">23</span>
+  </label>
+</li>
+
+
+
+
+<li>
+  <input type="checkbox" id="event9" class="event-checkbox" />
+  <label for="event9" class="toggle-label">
+      <img src="../assets/sharpleftorrightturn.jpg" alt="Event 1">
+      Sharp Left or Right Turn <span class="event-count">23</span>
+  </label>
+</li>
+
+
+
+<li>
+  <input type="checkbox" id="event10" class="event-checkbox" />
+  <label for="event10" class="toggle-label">
+      <img src="../assets/sharputurn.jpg" alt="Event 1">
+      Sharp U-Turn <span class="event-count">23</span>
+  </label>
+</li>
+
+
+
+<li>
+  <input type="checkbox" id="event11" class="event-checkbox" />
+  <label for="event11" class="toggle-label">
+      <img src="../assets/rapiddecleartionbyadas.jpg" alt="Event 1">
+      Rapid Decleartion By ADAS <span class="event-count">23</span>
+  </label>
+</li>
+
+
+
+<li>
+  <input type="checkbox" id="event12" class="event-checkbox" />
+  <label for="event12" class="toggle-label">
+      <img src="../assets/bsismois.jpg" alt="Event 1">
+      BSIS/MOIS <span class="event-count">23</span>
+  </label>
+</li>
+
+
+
+<li>
+  <input type="checkbox" id="event13" class="event-checkbox" />
+  <label for="event13" class="toggle-label">
+      <img src="../assets/continousoperation.jpg" alt="Event 1">
+      Continous Operation <span class="event-count">23</span>
+  </label>
+</li>
+
+
+<li>
+  <input type="checkbox" id="event14" class="event-checkbox" />
+  <label for="event14" class="toggle-label">
+      <img src="../assets/speeding.jpg" alt="Event 1">
+      Event 14 <span class="event-count">23</span>
+  </label>
+</li>
+
+
+              <!-- Repeat for other events -->
+          </ul>
+      </div>
+  </div>
+  <div class="col-md-9">
+    <div id="map" style="height: 350px; width:95%; margin-left:120px"></div>
+   
+  </div>
+  <div class="col-md-9">
+    <canvas id="eventChart" style="height: 300px; width:95%; margin-left:120px"></canvas>
+  </div>    
+</div>
 
 
       </div><!-- /.content-wrapper -->
