@@ -1,0 +1,139 @@
+
+    /* Legend Styling */
+    .legend {
+        padding: 10px 12px;
+        font: 16px 'Roboto', sans-serif;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        line-height: 24px;
+        border: 1px solid rgba(0,0,0,0.1);
+        color: #333;
+        position: absolute; /* Adjust position relative to the map */
+        bottom: 20px; /* Position at the bottom-right of the map */
+        left: -650px;
+    }
+    
+    .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.85;
+    }
+    
+    .legend strong {
+        text-align: center;
+        display: block;
+        margin-bottom: 10px;
+        color: #2c3e50;
+        font-weight: bold;
+    }
+    
+    .legend div {
+        clear: both;
+        display: flex;
+        align-items: center;
+    }
+    
+    .legend span {
+        flex-grow: 1;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+    /* General styles for content wrapper */
+.content-wrapper {
+    
+    background-color: #f4f6f9;
+}
+
+/* Event List Styles */
+
+/* Ensure grid layout inside the event-list container */
+.event-list .row {
+    display: flex;  /* Ensures the children (col-6) are flex items */
+    
+    background-color: rgb(255, 255, 255); /* Removes default margin */
+}
+
+.event-list .col-6 {
+    background-color: rgb(255, 255, 255);
+    flex: 1;
+    margin-left: -190; /* Each column takes equal width */
+    /* Spacing between columns */
+}
+/* Main container for the event list, using grid for two-column layout */
+.event-list {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px; /* Adjusted padding */
+
+    display: grid; /* Switching to grid layout for better control */
+    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+   
+  
+    height: 100%; /* Optional max height with scrolling */
+}
+
+/* Styles for each event item */
+.event-list li {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff; /* Custom red background */
+    border-radius: 5px;
+    padding: 4px;
+    margin-bottom: 10px; /* Space between events */
+    cursor: pointer; /* Indicates the item is clickable */
+   
+}
+
+.event-list img {
+    width: 70px; /* Consistent size for icons */
+    height: 60px;
+    margin-right: 10px; /* Space between icon and label */
+}
+
+.event-list .event-label {
+    /* Allows the label to fill the available space */
+    color: #ffffff; 
+    font-size: 12px;/* White text color for better readability on red bg */
+}
+
+.event-list .event-count {
+    /* Light grey for count background */
+    border-radius: 15px;
+    padding:2px 5px;
+    border: 1px solid #000000; /* Light border for count */
+    font-weight: bold;
+   
+   
+}
+
+/* Map and Event Chart Styles */
+#map, #eventChart {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#map {
+    height: 500px; /* Specific height for the map */
+}
+
+#eventChart {
+    height: 300px; /* Specific height for the event chart */
+    min-width: 100%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .event-list .row {
+        flex-direction: column; /* Stack columns on smaller screens */
+    }
+
+    .event-list, #map, #eventChart {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
